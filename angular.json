@@ -3,5 +3,142 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ticker": {
+      "projectType": "library",
+
+      "root": "projects/ticker",
+      "sourceRoot": "projects/ticker/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ticker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ticker/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ticker/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ticker/src/test.ts",
+            "tsConfig": "projects/ticker/tsconfig.spec.json",
+            "karmaConfig": "projects/ticker/karma.conf.js"
+          }
+        }
+      }
+    },
+    "stock-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/stock-app",
+      "sourceRoot": "projects/stock-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/stock-app",
+            "index": "projects/stock-app/src/index.html",
+            "main": "projects/stock-app/src/main.ts",
+            "polyfills": "projects/stock-app/src/polyfills.ts",
+            "tsConfig": "projects/stock-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/stock-app/src/favicon.ico",
+              "projects/stock-app/src/assets"
+            ],
+            "styles": [
+              "projects/stock-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/stock-app/src/environments/environment.ts",
+                  "with": "projects/stock-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {"port": 4201},
+          "configurations": {
+            "production": {
+              "browserTarget": "stock-app:build:production"
+            },
+            "development": {
+              "browserTarget": "stock-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "stock-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/stock-app/src/test.ts",
+            "polyfills": "projects/stock-app/src/polyfills.ts",
+            "tsConfig": "projects/stock-app/tsconfig.spec.json",
+            "karmaConfig": "projects/stock-app/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/stock-app/src/favicon.ico",
+              "projects/stock-app/src/assets"
+            ],
+            "styles": [
+              "projects/stock-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ticker"
 }

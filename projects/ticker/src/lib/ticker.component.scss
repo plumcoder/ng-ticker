@@ -1,0 +1,52 @@
+.ticker {
+  margin: 0;
+}
+
+.ttkCont {
+  overflow: hidden;
+  position: relative;
+}
+
+.shuffle {
+  .tickerStripe {
+    transition-property: opacity, transform;
+  }
+}
+
+.valColorTransition {
+  // not used currently
+  transition-property: color;
+}
+
+.tickVal {
+  display: inline-block;
+}
+
+
+.m-0 {
+  margin: 0;
+}
+
+.tickerContainer .tickerShadow {
+  opacity: 0;
+  pointer-events: none;
+
+  .tickerStripe {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.tickerContainer.shuffle .curValue {
+  opacity: 0;
+}
+
+.tickerContainer.shuffle .tickerShadow {
+  opacity: 1;
+}
+
+.shuffle .stripeNumCont {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(.65, .05, .36, 1);
+}

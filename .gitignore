@@ -43,3 +43,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Dependencies
+/node_modules
+projects/stock-app/node_modules

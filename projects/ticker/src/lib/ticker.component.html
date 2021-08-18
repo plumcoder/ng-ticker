@@ -1,0 +1,44 @@
+<div class="cont">
+  <div class="m-0">
+    <span class="ticker">
+      <span class="down">
+        <div class="tickerContainer ttkCont" [ngClass]="{'shuffle': inProgress}">
+          <div class="curValue">
+            <ng-container *ngFor="let p of price; trackBy:trackFnP">
+              <span #ticker class="valColorTransition down tickVal">
+                {{p.ft ? p.val: ''}}
+              </span>
+            </ng-container>
+          </div>
+          <div class="tickerShadow">
+            <div>
+              <div>
+                <div *ngFor="let p of price; let idx=index; trackBy:trackFn" class="tickerStripe"
+                  [style.transition-duration]="duration" style="opacity: 1; transform: translateY(0px);"
+                  [style.opacity]="p.ft ? 1 : 0" [style.transform]="'translateX(' + offset.x[idx] +'px)'">
+                  <div [@inAnim]={params:{duration:duration}} class="valColorTransition down"
+                    [style.transition-duration]="duration">
+                    <div class="stripeNumCont" style="transition-delay: 0ms; transform: translateX(0px);"
+                      [style.transition-duration]="duration"
+                      [style.transform]="'translateY(' +  (price[idx]?.val-9)*offset.y +'px)'">
+                      <div #backTick><span>9</span></div>
+                      <div><span>8</span></div>
+                      <div><span>7</span></div>
+                      <div><span>6</span></div>
+                      <div><span>5</span></div>
+                      <div><span>4</span></div>
+                      <div><span>3</span></div>
+                      <div><span>2</span></div>
+                      <div><span>1</span></div>
+                      <div><span>0</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </span>
+  </div>
+</div>

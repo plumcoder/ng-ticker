@@ -1,0 +1,28 @@
+{
+  "name": "@plcoder/ng-ticker",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/plumcoder/ng-ticker.git"
+  },
+  "email": "soundcoder@protonmail.com",
+  "description": "Add ticker or stock change like animation when the number input changes",
+  "license": "MIT",
+  "keywords": [
+    "ticker",
+    "robinhood-ticker",
+    "ticker-animation",
+    "number ticker",
+    "stock-animation",
+    "animation",
+    "number animation",
+    "angular ticker animation",
+    "robinhood-stock-animation",
+    "ng-animation",
+    "number-up-down-animation"
+  ],
+  "version": "1.0.11",
+  "peerDependencies": {
+    "@angular/common": ">=7.0.0",
+    "@angular/core": ">=7.0.0"
+  }
+}

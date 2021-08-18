@@ -1,12 +1,10 @@
 # NG Ticker
 
-
-Lightweight Ticker component
+Lightweight Ticker animation component
 
 Show changing number with stock ticker like animation
 &nbsp;
 &nbsp;
-
 
 ![ng ticker in action](https://github.com/plumcoder/ng-ticker-/blob/master/ngTicker.gif?raw=true)
 
@@ -76,5 +74,3 @@ After that, you can use the `ticker` components in your templates, passing the c
 | ----------------------------------------------------------- | ------------------------------------------------------------- | 
 | **`displayNum?: number`** <br/> Defaults to `0`             |  Number to display   |
 | **`duration?: string`** <br /> Defaults to `200ms`          |  Animation speed, time required to transiton from one value to other              |
-
-
